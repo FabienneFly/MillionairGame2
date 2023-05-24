@@ -8,6 +8,6 @@ package com.mycompany.millionair_game;
  *
  * @author User
  */
-public class Hint {
+public class Test {
     
 }
