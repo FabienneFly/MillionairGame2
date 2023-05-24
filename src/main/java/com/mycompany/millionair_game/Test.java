@@ -8,6 +8,10 @@ package com.mycompany.millionair_game;
  *
  * @author User
  */
-public class Test {
-    
+public class Test
+{
+    public test()
+    {
+        
+    }
 }
