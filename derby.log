@@ -1,7 +1,7 @@
-Wed May 24 14:52:10 NZST 2023 : Apache Derby Network Server - 10.14.2.0 - (1828579) started and ready to accept connections on port 1527
+Fri May 26 17:43:37 NZST 2023 : Apache Derby Network Server - 10.14.2.0 - (1828579) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Wed May 24 14:53:07 NZST 2023:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0188-4bab-cbb9-ffffc98af1e8 
+Fri May 26 17:51:38 NZST 2023:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0188-5695-7c99-ffffc98af1e8 
 on database directory C:\Users\FabiF\OneDrive - ZHAW\Desktop\MillionairGame2\MillionairGame with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
 Loaded from file:/C:/Workspace_ZHAW/SoftwareConstruction/db-derby-10.14.2.0-bin/db-derby-10.14.2.0-bin/lib/derby.jar
 java.vendor=Oracle Corporation
@@ -12,10 +12,3 @@ os.arch=amd64
 os.version=10.0
 derby.system.home=C:\Users\FabiF\OneDrive - ZHAW\Desktop\MillionairGame2
 Database Class Loader started - derby.database.classpath=''
-----------------------------------------------------------------
-Wed May 24 14:53:08 NZST 2023:
-Shutting down instance a816c00e-0188-4bab-cbb9-ffffc98af1e8 on database directory C:\Users\FabiF\OneDrive - ZHAW\Desktop\MillionairGame2\MillionairGame with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
-Wed May 24 14:53:08 NZST 2023 Thread[DRDAConnThread_3,5,main] (DATABASE = MillionairGame), (DRDAID = {2}), Database 'MillionairGame' shutdown.
-----------------------------------------------------------------
-Thu May 25 07:18:16 NZST 2023: Shutting down Derby engine
-----------------------------------------------------------------
