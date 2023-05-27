@@ -1,4 +1,3 @@
-
 package com.mycompany.millionair_game;
 
 import java.net.HttpURLConnection;
@@ -32,7 +31,7 @@ public class MultipleChoiceQuestion extends AbstractQuestion {
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
             StringBuilder response;
-            
+
             // Read response
             try (
                     BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()))) {
@@ -70,16 +69,14 @@ public class MultipleChoiceQuestion extends AbstractQuestion {
 
     //save the AbstractQuestion to a File
     @Override
-    public void saveQuestionToFile() 
-    {
+    public void saveQuestionToFile() {
         FileIO fileIO = new FileIO();
         fileIO.saveQuestion(question);
     }
 
     //Prints AbstractQuestion
-    @Override   
-    public List<String> display(int questionIndex) 
-    {
+    @Override
+    public List<String> display(int questionIndex) {
         System.out.println((questionIndex + 1) + ". " + question);
 
         // Create a list to hold all answers (correct and incorrect)
@@ -99,12 +96,11 @@ public class MultipleChoiceQuestion extends AbstractQuestion {
         return allAnswers;
     }
 
-    public String getCorrectAnswer() 
-    {
+    public String getCorrectAnswer() {
         return correctAnswer;
     }
 
-    String getQuestion() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public String getQuestion() {
+        return this.question;
     }
 }
