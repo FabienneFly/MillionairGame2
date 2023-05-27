@@ -8,8 +8,8 @@ public class MillionaireGame {
 
     public static void main(String[] args) {
         //New instance of GameStart
-
-        new GUI().setVisible(true);
+        
+        new Login().setVisible(true);
     }
 
 }
