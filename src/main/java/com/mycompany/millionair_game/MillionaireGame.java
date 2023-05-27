@@ -10,6 +10,6 @@ public class MillionaireGame {
         //New instance of GameStart
         GameStart gameStart = new GameStart();
         gameStart.start();
-    }
 
+    }
 }

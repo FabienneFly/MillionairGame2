@@ -300,7 +300,7 @@ public class GUI extends javax.swing.JFrame
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         // TODO add your handling code here:
-        jTextField1.setText("Welcome to Who Wants to be a Millionaire! \n\nPress '1' to strat the game!");
+        jTextField1.setText("Welcome to Who Wants to be a Millionaire! \n\nPress 'start' to strat the game!");
         jButton1.setText("Hint");
         jButton2.setText("Skip");
         jButton3.setText(" ");
