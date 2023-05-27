@@ -1,3 +1,4 @@
+
 package com.mycompany.millionair_game;
 
 import java.net.HttpURLConnection;
@@ -53,7 +54,6 @@ public class MultipleChoiceQuestion extends AbstractQuestion {
             //Codereview ChatGPT
             if (question == null || correctAnswer == null) {
                 throw new IllegalStateException("Error: question or correctAnswer is null.");
-
             }
             JSONArray wrongAnswersArray = resultObj.getJSONArray("incorrect_answers");
             wrongAnswers = new String[wrongAnswersArray.length()];
@@ -66,20 +66,20 @@ public class MultipleChoiceQuestion extends AbstractQuestion {
         } catch (IOException | JSONException e) {
             System.out.println("Error: " + e.getMessage());
         }
-
     }
 
     //save the AbstractQuestion to a File
     @Override
-    public void saveQuestionToFile() {
+    public void saveQuestionToFile() 
+    {
         FileIO fileIO = new FileIO();
         fileIO.saveQuestion(question);
-
     }
 
     //Prints AbstractQuestion
     @Override   
-    public List<String> display(int questionIndex) {
+    public List<String> display(int questionIndex) 
+    {
         System.out.println((questionIndex + 1) + ". " + question);
 
         // Create a list to hold all answers (correct and incorrect)
@@ -99,9 +99,12 @@ public class MultipleChoiceQuestion extends AbstractQuestion {
         return allAnswers;
     }
 
-    
-    public String getCorrectAnswer() {
+    public String getCorrectAnswer() 
+    {
         return correctAnswer;
     }
 
+    String getQuestion() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
