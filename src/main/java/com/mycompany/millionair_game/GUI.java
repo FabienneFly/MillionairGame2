@@ -13,7 +13,10 @@ import java.util.List;
  */
 public class GUI extends javax.swing.JFrame
 {
-    private MultipleChoiceQuestion question;
+
+    static void setVisible() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     /**
      * Creates new form GUI
      */
@@ -49,6 +52,7 @@ public class GUI extends javax.swing.JFrame
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
+        jTextField2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -146,23 +150,47 @@ public class GUI extends javax.swing.JFrame
 
         jButton2.setBackground(new java.awt.Color(204, 255, 204));
         jButton2.setText("Skip");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
 
-        jButton3.setBackground(new java.awt.Color(0, 255, 204));
         jButton3.setText("Answer_2");
 
-        jButton4.setBackground(new java.awt.Color(0, 255, 204));
         jButton4.setText("Answer_1");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
 
-        jButton5.setBackground(new java.awt.Color(0, 255, 204));
         jButton5.setText("Answer_4");
 
-        jButton6.setBackground(new java.awt.Color(0, 255, 204));
         jButton6.setText("Answer_3");
 
-        jButton8.setText("Start");
+        jButton8.setBackground(new java.awt.Color(255, 255, 0));
+        jButton8.setText("START");
         jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton8MouseClicked(evt);
+            }
+        });
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        jTextField2.setText("Player: ");
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField2KeyTyped(evt);
             }
         });
 
@@ -196,8 +224,11 @@ public class GUI extends javax.swing.JFrame
                                 .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(360, 360, 360)
-                                .addComponent(jLabel1)))
-                        .addGap(284, 284, 284)))
+                                .addComponent(jLabel1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(scoreLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(scoreLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -216,7 +247,9 @@ public class GUI extends javax.swing.JFrame
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
+                        .addContainerGap()
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -308,7 +341,9 @@ public class GUI extends javax.swing.JFrame
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        
+        Hint hint = new Hint();
+        String[] answers = {jButton3.getText(), jButton4.getText(), jButton5.getText(), jButton6.getText()};
+        hint.useFiftyFifty(jButton3.getText(), answers);
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
@@ -323,6 +358,40 @@ public class GUI extends javax.swing.JFrame
         jButton5.setText(allAnswer.get(2));
         jButton6.setText(allAnswer.get(3));
     }//GEN-LAST:event_jButton8MouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        Skip skip = new Skip();
+        boolean skipped = skip.useSkip();
+        
+        if(skipped)
+        {
+            jTextField1.setText("Question Skipped!");
+            jButton4.setText("");
+            jButton3.setText("");
+            jButton5.setText("");
+            jButton6.setText("");
+        }
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jTextField2KeyTyped
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
      * @param args
@@ -371,6 +440,7 @@ public class GUI extends javax.swing.JFrame
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel scoreLabel10;
     private javax.swing.JLabel scoreLabel11;
     private javax.swing.JLabel scoreLabel12;

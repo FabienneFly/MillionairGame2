@@ -4,6 +4,8 @@
  */
 package com.mycompany.millionair_game;
 
+import java.awt.Color;
+
 /**
  *
  * @author User
@@ -33,6 +35,11 @@ public class Finish extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                formMouseMoved(evt);
+            }
+        });
 
         jLabel1.setText("GAME OVER");
 
@@ -95,6 +102,11 @@ public class Finish extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void formMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseMoved
+        // TODO add your handling code here:
+         this.getContentPane().setBackground(Color.GRAY);
+    }//GEN-LAST:event_formMouseMoved
 
     /**
      * @param args the command line arguments

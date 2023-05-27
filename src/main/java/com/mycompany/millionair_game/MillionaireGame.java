@@ -10,7 +10,6 @@ public class MillionaireGame {
         //New instance of GameStart
 
         new GUI().setVisible(true);
-        
     }
 
 }
