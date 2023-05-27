@@ -13,6 +13,7 @@ import java.util.List;
  */
 public class GUI extends javax.swing.JFrame
 {
+    private MultipleChoiceQuestion question;
     /**
      * Creates new form GUI
      */
@@ -313,8 +314,8 @@ public class GUI extends javax.swing.JFrame
     private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
         // TODO add your handling code here:
         MultipleChoiceQuestion question = new MultipleChoiceQuestion();
-        question.fetchQuestion(0);
-        List<String> allAnswer = question.display(0);
+        question.fetchQuestion(10);
+        List<String> allAnswer = question.display(10);
         
         jTextField1.setText(question.getQuestion());
         jButton4.setText(allAnswer.get(0));
