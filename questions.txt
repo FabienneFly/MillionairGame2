@@ -87,6 +87,7 @@ Alzheimer&#039;s disease primarily affects which part of the human body?
 Who is the star of the AMC series Breaking Bad?
 What is the capital of Spain?
 Which of these is NOT a Humongous Entertainment game franchise?
+<<<<<<< Updated upstream
 &quot;The Potato Sack&quot; was a collection of indie games released on Steam in 2011 as a promotion for which game?
 The band Muse released their first album, Showbiz, in what year?
 Which of the following Pacific Islander countries is ruled by a constitutional monarchy?
@@ -125,3 +126,7 @@ In &quot;ALF&quot;, what was ALF&#039;s real name?
 What game was used to advertise Steam?
 Who painted the Sistine Chapel?
 What is the name of Finnish DJ Darude&#039;s hit single released in October 1999?
+=======
+Which of these Disney shows is classified as an anime?
+Who performed &quot;I Took A Pill In Ibiza&quot;?
+>>>>>>> Stashed changes

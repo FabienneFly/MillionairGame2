@@ -10,6 +10,16 @@ public class MillionaireGame {
         //New instance of GameStart
 
         new GUI().setVisible(true);
+<<<<<<< Updated upstream
+=======
+        
+        
+          DataBase db = new DataBase();
+        db.connectBookStoreDB();
+        db.showTable();
+        db.closeConnection();
+        
+>>>>>>> Stashed changes
     }
 
 }
