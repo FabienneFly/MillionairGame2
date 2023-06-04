@@ -1,0 +1,8 @@
+# Ignore all log files
+*.log
+
+# Ignore all files in the seg0 directory
+MillionairDB/seg0/
+
+# Ignore all files in the log directory
+MillionairDB/log/

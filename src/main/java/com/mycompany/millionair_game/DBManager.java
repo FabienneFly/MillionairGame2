@@ -16,20 +16,12 @@ import java.sql.Statement;
 
 public final class DBManager {
 
-    /**
-     * If you try to connect the database on the server, you must start the
-     * server first. Meanwhile, you need to import 'derbyclient.jar' to the
-     * libraries.
-     */
+    private static DBManager instance = null;
+
     private static final String URL = "jdbc:derby://localhost:1527/MillionairDB;create=true";
-    /**
-     * If you try to connect the database embedded in the project, you must stop
-     * the server first. Meanwhile, you need to import 'derby.jar' to the
-     * libraries.
-     */
+
     private static final String USER_NAME = "abc"; //your DB username
     private static final String PASSWORD = "abc";//your DB password
-//    private static final String URL = "jdbc:derby:BookStoreDB; create=true";  //url of the DB host
 
     Connection conn;
 
@@ -37,11 +29,10 @@ public final class DBManager {
         establishConnection();
     }
 
-    public static void main(String[] args) {
-        DBManager dbManager = new DBManager();
-        System.out.println(dbManager.getConnection());
-    }
-
+//    public static void main(String[] args) {
+//        DBManager dbManager = new DBManager();
+//        System.out.println(dbManager.getConnection());
+//    }
     public Connection getConnection() {
         return this.conn;
     }
@@ -58,6 +49,13 @@ public final class DBManager {
         }
     }
 
+    public static DBManager getInstance() {
+        if (instance == null) {
+            instance = new DBManager();
+        }
+        return instance;
+    }
+
     public void closeConnections() {
         if (conn != null) {
             try {
@@ -66,6 +64,14 @@ public final class DBManager {
                 System.out.println(ex.getMessage());
             }
         }
+    }
+
+    public void savePlayerStats(Player player) {
+        String sql = "INSERT INTO USERS(USERNAME, SCORE) VALUES ('"
+                + player.getName() + "', "
+                + player.getMoney() + ")";
+
+        updateDB(sql);
     }
 
     public ResultSet queryDB(String sql) {
