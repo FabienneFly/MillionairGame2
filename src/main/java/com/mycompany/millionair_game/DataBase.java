@@ -12,23 +12,34 @@ import java.sql.Statement;
 
 public class DataBase {
 
-    private final DBManager dbManager;
+    DBManager dbManager = DBManager.getInstance();
     private final Connection conn;
     private Statement statement;
 
     public DataBase() {
-        dbManager = new DBManager();
+        dbManager = DBManager.getInstance();
         conn = dbManager.getConnection();
+        connectDB();
+        checkAndCreateTable("USERS");
 
     }
 
-    public void connectBookStoreDB() {
+    public void connectDB() {
         try {
             this.statement = conn.createStatement();
-            this.checkExistedTable("USERS");
-            this.statement.addBatch("CREATE  TABLE USERS  (USERID  INT,   USERNAME   VARCHAR(50),   SCORE INT)");
-            this.statement.addBatch("INSERT INTO USERS VALUES (1, 'Fabi', 500000), (2, 'Kira', 100000)");
-            this.statement.executeBatch();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public void checkAndCreateTable(String tableName) {
+        try {
+            DatabaseMetaData dbmd = conn.getMetaData();
+            ResultSet tables = dbmd.getTables(null, null, tableName.toUpperCase(), null);
+
+            if (!tables.next()) {
+                statement.executeUpdate("CREATE TABLE " + tableName + " (USERNAME VARCHAR(50), SCORE INT)");
+            }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
@@ -40,11 +51,9 @@ public class DataBase {
             ResultSet rs = this.statement.executeQuery("SELECT * FROM USERS");
 
             while (rs.next()) {
-                int userID = rs.getInt("USERID");
                 String name = rs.getString("USERNAME");
                 int score = rs.getInt("SCORE");
 
-                System.out.println("USERID: " + userID);
                 System.out.println("NAME: " + name);
                 System.out.println("SCORE: " + score);
                 System.out.println("-------------------");

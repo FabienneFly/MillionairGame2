@@ -15,6 +15,7 @@ public class Round {
     private Hint hint;
     private Skip skip;
     private final GameStart gameStart = new GameStart();
+    DBManager dbManager = DBManager.getInstance();
 
     public Round(Player player) {
         this.player = player;
@@ -67,6 +68,7 @@ public class Round {
                                 if (questionIndex == 9) {
                                     System.out.println("Congratulations! You answered all 10 questions correctly.");
                                     score.saveStats(player.getName(), player.getMoney());
+                                    dbManager.savePlayerStats(player);
                                     score.printHighScores();
 
                                 }
@@ -79,6 +81,7 @@ public class Round {
                                 System.out.println("############################################### \n");
 
                                 score.saveStats(player.getName(), player.getMoney());
+                                dbManager.savePlayerStats(player);
                                 score.printHighScores();
                                 questionIndex = 10; // Exit the loop
                                 questionAnsweredOrSkipped = true;
