@@ -97,3 +97,12 @@ ERROR XJ004: Database 'BookStoreDB' not found.
 ============= end nested exception, level (1) ===========
 Cleanup action completed
 Sat May 27 13:15:56 NZST 2023 Thread[DRDAConnThread_3,5,main] (DATABASE = BookStoreDB), (DRDAID = {6}), Database 'BookStoreDB' not found.
+----------------------------------------------------------------
+Sat May 27 14:08:50 NZST 2023: Shutting down Derby engine
+----------------------------------------------------------------
+Sat May 27 14:08:50 NZST 2023:
+Shutting down instance 9a4840c2-0188-5aba-8689-ffffc98af1e8 on database directory C:\Users\FabiF\OneDrive - ZHAW\Desktop\MillionairGame2\MillionairDB with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
+----------------------------------------------------------------
+Sat May 27 14:08:50 NZST 2023:
+Shutting down instance a816c00e-0188-5aba-8689-ffffc98af1e8 on database directory C:\Users\FabiF\OneDrive - ZHAW\Desktop\MillionairGame2\USERS with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
+----------------------------------------------------------------
