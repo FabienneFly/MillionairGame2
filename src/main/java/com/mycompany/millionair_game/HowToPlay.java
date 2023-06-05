@@ -41,6 +41,7 @@ public class HowToPlay extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("HOW TO PLAY");
 
         jButton1.setText("START");
@@ -56,6 +57,7 @@ public class HowToPlay extends javax.swing.JFrame {
         });
 
         jTextArea2.setColumns(20);
+        jTextArea2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTextArea2.setRows(5);
         jTextArea2.setText("The game consists of a series of multiple-choice questions.\n------------------------------------------------------------------------------------------------------------------------------\n1. Your goal is to answer all the questions correctly and win the top prize of one million dollars.\n2. You will be given four possible answers for each question, and you must choose the one that you think is correct.\n3. You have two \"lifelines\" that you can use to help you answer a question: one 50/50-joker and one Skip-joker.\n4. If you answer a question correctly, you will advance to the next question and your potential winnings will increase.\n5. If you answer a question incorrectly, you will lose all your winnings and the game will be over.\n6. If you reach the end of the game and answer the final question correctly, you will win the top prize.\n------------------------------------------------------------------------------------------------------------------------------\n\nThat's it! Have fun!\n\n------------------------------------------------------------------------------------------------------------------------------\n");
         jScrollPane2.setViewportView(jTextArea2);
@@ -86,7 +88,7 @@ public class HowToPlay extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
 
         pack();
