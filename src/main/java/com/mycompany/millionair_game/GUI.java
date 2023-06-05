@@ -384,6 +384,9 @@ public class GUI extends javax.swing.JFrame
         else 
         {
             jButton4.setBackground(Color.RED);
+            Finish finish = new Finish();
+            finish.setVisible(true);
+            this.dispose();
         }
     }//GEN-LAST:event_jButton4MouseClicked
 
@@ -433,6 +436,9 @@ public class GUI extends javax.swing.JFrame
         else 
         {
             jButton3.setBackground(Color.RED);
+            Finish finish = new Finish();
+            finish.setVisible(true);
+            this.dispose();
         }
     }//GEN-LAST:event_jButton3MouseClicked
 
@@ -447,6 +453,9 @@ public class GUI extends javax.swing.JFrame
         else 
         {
             jButton6.setBackground(Color.RED);
+            Finish finish = new Finish();
+            finish.setVisible(true);
+            this.dispose();
         }
     }//GEN-LAST:event_jButton6MouseClicked
 
@@ -461,6 +470,9 @@ public class GUI extends javax.swing.JFrame
         else 
         {
             jButton5.setBackground(Color.RED);
+            Finish finish = new Finish();
+            finish.setVisible(true);
+            this.dispose();
         }
     }//GEN-LAST:event_jButton5MouseClicked
 
