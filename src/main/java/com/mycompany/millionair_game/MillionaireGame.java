@@ -15,11 +15,6 @@ public class MillionaireGame {
         gameStart.start();
 
 
-//        new GUI().setVisible(true);
-//
-//        
-//  
-
     }
 
 }
