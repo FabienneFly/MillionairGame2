@@ -10,6 +10,8 @@ public class MillionaireGame {
         //New instance of GameStart
         
         new Login().setVisible(true);
+        GameStart gameStart = new GameStart();
+        gameStart.start();
     }
 
 }

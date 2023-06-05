@@ -12,15 +12,16 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class MultipleChoiceQuestion extends AbstractQuestion {
-
+public class MultipleChoiceQuestion //extends AbstractQuestion 
+{
     private String question;
     private String correctAnswer;
     private String[] wrongAnswers;
     private static final String API_ENDPOINT = "https://opentdb.com/api.php?amount=1&difficulty=easy&type=multiple";
-
+    private int currentQuestion;
+    
     //fetches a question from https://opentdb.com/api_config.php
-    @Override
+//    @Override
     public void fetchQuestion(int questionIndex) {
         try {
             // API
@@ -60,7 +61,7 @@ public class MultipleChoiceQuestion extends AbstractQuestion {
                 wrongAnswers[j] = wrongAnswersArray.getString(j);
             }
             //Save the question to questions.txt
-            saveQuestionToFile();
+//            saveQuestionToFile();
 
         } catch (IOException | JSONException e) {
             System.out.println("Error: " + e.getMessage());
@@ -68,14 +69,14 @@ public class MultipleChoiceQuestion extends AbstractQuestion {
     }
 
     //save the AbstractQuestion to a File
-    @Override
-    public void saveQuestionToFile() {
-        FileIO fileIO = new FileIO();
-        fileIO.saveQuestion(question);
-    }
+//    @Override
+//    public void saveQuestionToFile() {
+//        FileIO fileIO = new FileIO();
+//        fileIO.saveQuestion(question);
+//    }
 
     //Prints AbstractQuestion
-    @Override
+    
     public List<String> display(int questionIndex) {
         System.out.println((questionIndex + 1) + ". " + question);
 
@@ -103,4 +104,11 @@ public class MultipleChoiceQuestion extends AbstractQuestion {
     public String getQuestion() {
         return this.question;
     }
+    
+    public boolean isAnswerCorrect(String select)
+    {
+        return select.equals(correctAnswer);
+    }
+    
+
 }

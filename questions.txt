@@ -87,6 +87,7 @@ Alzheimer&#039;s disease primarily affects which part of the human body?
 Who is the star of the AMC series Breaking Bad?
 What is the capital of Spain?
 Which of these is NOT a Humongous Entertainment game franchise?
+<<<<<<< Updated upstream
 &quot;The Potato Sack&quot; was a collection of indie games released on Steam in 2011 as a promotion for which game?
 The band Muse released their first album, Showbiz, in what year?
 Which of the following Pacific Islander countries is ruled by a constitutional monarchy?
@@ -125,3 +126,15 @@ In &quot;ALF&quot;, what was ALF&#039;s real name?
 What game was used to advertise Steam?
 Who painted the Sistine Chapel?
 What is the name of Finnish DJ Darude&#039;s hit single released in October 1999?
+=======
+Which of these Disney shows is classified as an anime?
+Who performed &quot;I Took A Pill In Ibiza&quot;?
+>>>>>>> Stashed changes
+Rocket League is a game which features..
+In Digimon, what is the Japanese name for the final evolutionary stage?
+In Minecraft, which two items must be combined to craft a torch?
+In the video game, Half-life, what event started the Half-life universe as we know today?
+Which of these characters is the mascot of the video game company SEGA?
+Grant Gustin plays which superhero on the CW show of the same name?
+Who is the lead singer of Pearl Jam?
+What is the default alias that Princess Garnet goes by in Final Fantasy IX?
