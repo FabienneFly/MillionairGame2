@@ -79,10 +79,9 @@ public class Round {
                                 System.out.println("###############################################");
                                 System.out.println("Thank you for playing, your score is: " + player.getMoney() + "$");
                                 System.out.println("############################################### \n");
-
                                 score.saveStats(player.getName(), player.getMoney());
                                 dbManager.savePlayerStats(player);
-                                dbManager.printUserTable();
+                                dbManager.printUsersTable();
 
                                 score.printHighScores();
                                 questionIndex = 10; // Exit the loop
