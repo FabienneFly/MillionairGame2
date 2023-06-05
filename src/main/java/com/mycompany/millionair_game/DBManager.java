@@ -16,20 +16,12 @@ import java.sql.Statement;
 
 public final class DBManager {
 
-    /**
-     * If you try to connect the database on the server, you must start the
-     * server first. Meanwhile, you need to import 'derbyclient.jar' to the
-     * libraries.
-     */
-    private static final String URL = "jdbc:derby://localhost:1527/MillionairDB;create=true";
-    /**
-     * If you try to connect the database embedded in the project, you must stop
-     * the server first. Meanwhile, you need to import 'derby.jar' to the
-     * libraries.
-     */
+    private static DBManager instance = null;
+
+    private static final String URL = "jdbc:derby:MillionairDB;create=true";
+
     private static final String USER_NAME = "abc"; //your DB username
     private static final String PASSWORD = "abc";//your DB password
-//    private static final String URL = "jdbc:derby:BookStoreDB; create=true";  //url of the DB host
 
     Connection conn;
 
@@ -37,11 +29,10 @@ public final class DBManager {
         establishConnection();
     }
 
-    public static void main(String[] args) {
-        DBManager dbManager = new DBManager();
-        System.out.println(dbManager.getConnection());
-    }
-
+//    public static void main(String[] args) {
+//        DBManager dbManager = new DBManager();
+//        System.out.println(dbManager.getConnection());
+//    }
     public Connection getConnection() {
         return this.conn;
     }
@@ -58,6 +49,60 @@ public final class DBManager {
         }
     }
 
+    public static DBManager getInstance() {
+        if (instance == null) {
+            instance = new DBManager();
+        }
+        return instance;
+    }
+
+    public void printUsersTable() {
+        String sql = "SELECT * FROM USERS";
+        ResultSet resultSet = null;
+
+        try {
+            Statement statement = conn.createStatement();
+            resultSet = statement.executeQuery(sql);
+
+            while (resultSet.next()) {
+                String name = resultSet.getString("USERNAME");
+                int score = resultSet.getInt("SCORE");
+
+                System.out.println("USERNAME: " + name);
+                System.out.println("SCORE: " + score);
+                System.out.println("-------------------");
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+    }
+
+    public void deleteAllUsers() {
+        String sql = "DELETE FROM USERS";
+
+        try {
+            Statement statement = conn.createStatement();
+            int rowsDeleted = statement.executeUpdate(sql);
+
+            if (rowsDeleted > 0) {
+                System.out.println("All records were deleted from USERS table");
+            } else {
+                System.out.println("No records to delete in USERS table");
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
     public void closeConnections() {
         if (conn != null) {
             try {
@@ -66,6 +111,14 @@ public final class DBManager {
                 System.out.println(ex.getMessage());
             }
         }
+    }
+
+    public void savePlayerStats(Player player) {
+        String sql = "INSERT INTO USERS(USERNAME, SCORE) VALUES ('"
+                + player.getName() + "', "
+                + player.getMoney() + ")";
+
+        updateDB(sql);
     }
 
     public ResultSet queryDB(String sql) {
