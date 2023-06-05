@@ -82,6 +82,8 @@ public class Round {
 
                                 score.saveStats(player.getName(), player.getMoney());
                                 dbManager.savePlayerStats(player);
+                                dbManager.printUserTable();
+
                                 score.printHighScores();
                                 questionIndex = 10; // Exit the loop
                                 questionAnsweredOrSkipped = true;

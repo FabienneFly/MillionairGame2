@@ -18,7 +18,7 @@ public final class DBManager {
 
     private static DBManager instance = null;
 
-    private static final String URL = "jdbc:derby://localhost:1527/MillionairDB;create=true";
+    private static final String URL = "jdbc:derby:MillionairDB;create=true";
 
     private static final String USER_NAME = "abc"; //your DB username
     private static final String PASSWORD = "abc";//your DB password
@@ -54,6 +54,53 @@ public final class DBManager {
             instance = new DBManager();
         }
         return instance;
+    }
+
+    public void printUsersTable() {
+        String sql = "SELECT * FROM USERS";
+        ResultSet resultSet = null;
+
+        try {
+            Statement statement = conn.createStatement();
+            resultSet = statement.executeQuery(sql);
+
+            while (resultSet.next()) {
+                String name = resultSet.getString("USERNAME");
+                int score = resultSet.getInt("SCORE");
+
+                System.out.println("USERNAME: " + name);
+                System.out.println("SCORE: " + score);
+                System.out.println("-------------------");
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+    }
+
+    public void deleteAllUsers() {
+        String sql = "DELETE FROM USERS";
+
+        try {
+            Statement statement = conn.createStatement();
+            int rowsDeleted = statement.executeUpdate(sql);
+
+            if (rowsDeleted > 0) {
+                System.out.println("All records were deleted from USERS table");
+            } else {
+                System.out.println("No records to delete in USERS table");
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     public void closeConnections() {

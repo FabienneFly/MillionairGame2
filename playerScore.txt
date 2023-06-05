@@ -20,3 +20,7 @@ asdfg - 0
 asdfasdf - 100000
 asdf - 0
 asdfasdfasdf - 0
+asdf - 100000
+KKKKK - 0
+Test1 - 0
+Kira - 100000
