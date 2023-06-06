@@ -30,52 +30,52 @@ public class GUI extends javax.swing.JFrame
         {
             case 0:
             {
-                scoreLabel12.setBackground(Color.YELLOW);
+                scoreLabel12.setForeground(Color.GREEN);
                 break;
             }
             case 1:
             {
-                scoreLabel10.setBackground(Color.YELLOW);
+                scoreLabel10.setForeground(Color.GREEN);
                 break;
             }
             case 2:
             {
-                scoreLabel11.setBackground(Color.YELLOW);
+                scoreLabel11.setForeground(Color.GREEN);
                 break;
             }
             case 3:
             {
-                scoreLabel13.setBackground(Color.YELLOW);
+                scoreLabel13.setForeground(Color.GREEN);
                 break;
             }
             case 4:
             {
-                scoreLabel14.setBackground(Color.YELLOW);
+                scoreLabel14.setForeground(Color.GREEN);
                 break;
             }
             case 5:
             {
-                scoreLabel15.setBackground(Color.YELLOW);
+                scoreLabel15.setForeground(Color.GREEN);
                 break;
             }
             case 6:
             {
-                scoreLabel16.setBackground(Color.YELLOW);
+                scoreLabel16.setForeground(Color.GREEN);
                 break;
             }
             case 7:
             {
-                scoreLabel17.setBackground(Color.YELLOW);
+                scoreLabel17.setForeground(Color.GREEN);
                 break;
             }
             case 8:
             {
-                scoreLabel18.setBackground(Color.YELLOW);
+                scoreLabel18.setForeground(Color.GREEN);
                 break;
             }
             case 9:
             {
-                scoreLabel19.setBackground(Color.YELLOW);
+                scoreLabel19.setForeground(Color.GREEN);
                 break;
             }
         }
@@ -379,7 +379,6 @@ public class GUI extends javax.swing.JFrame
 
     private void formMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseMoved
         // TODO add your handling code here:
-        this.getContentPane().setBackground(Color.GRAY);
     }//GEN-LAST:event_formMouseMoved
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -432,14 +431,14 @@ public class GUI extends javax.swing.JFrame
         else 
         {
             jButton4.setBackground(Color.RED);
-//            //The timer was made from ChatGPT
-//            javax.swing.Timer timer = new javax.swing.Timer(1000, (e) -> 
-//            {
-//                finish.setVisible(true);
-//                this.dispose();
-//            });
-//            timer.setRepeats(false); // Set the timer to execute only once
-//            timer.start(); // Start the timer
+            //The timer was made from ChatGPT
+            javax.swing.Timer timer = new javax.swing.Timer(1000, (e) -> 
+            {
+                finish.setVisible(true);
+                this.dispose();
+            });
+            timer.setRepeats(false); // Set the timer to execute only once
+            timer.start(); // Start the timer
         }
     }//GEN-LAST:event_jButton4MouseClicked
 
@@ -487,13 +486,13 @@ public class GUI extends javax.swing.JFrame
         else 
         {
             jButton3.setBackground(Color.RED);
-//            javax.swing.Timer timer = new javax.swing.Timer(1000, (e) -> 
-//            {
-//                finish.setVisible(true);
-//                this.dispose();
-//            });
-//            timer.setRepeats(false); // Set the timer to execute only once
-//            timer.start(); // Start the timer
+            javax.swing.Timer timer = new javax.swing.Timer(1000, (e) -> 
+            {
+                finish.setVisible(true);
+                this.dispose();
+            });
+            timer.setRepeats(false); // Set the timer to execute only once
+            timer.start(); // Start the timer
         }
       
     }//GEN-LAST:event_jButton3MouseClicked
@@ -517,13 +516,13 @@ public class GUI extends javax.swing.JFrame
         else 
         {
             jButton6.setBackground(Color.RED);
-//            javax.swing.Timer timer = new javax.swing.Timer(1000, (e) -> 
-//            {
-//                finish.setVisible(true);
-//                this.dispose();
-//            });
-//            timer.setRepeats(false); // Set the timer to execute only once
-//            timer.start(); // Start the timer
+            javax.swing.Timer timer = new javax.swing.Timer(1000, (e) -> 
+            {
+                finish.setVisible(true);
+                this.dispose();
+            });
+            timer.setRepeats(false); // Set the timer to execute only once
+            timer.start(); // Start the timer
         }
     }//GEN-LAST:event_jButton6MouseClicked
 
@@ -546,13 +545,13 @@ public class GUI extends javax.swing.JFrame
         else 
         {
             jButton5.setBackground(Color.RED);
-//            javax.swing.Timer timer = new javax.swing.Timer(1000, (e) -> 
-//            {
-//                finish.setVisible(true);
-//                this.dispose();
-//            });
-//            timer.setRepeats(false); // Set the timer to execute only once
-//            timer.start(); // Start the timer
+            javax.swing.Timer timer = new javax.swing.Timer(1000, (e) -> 
+            {
+                finish.setVisible(true);
+                this.dispose();
+            });
+            timer.setRepeats(false); // Set the timer to execute only once
+            timer.start(); // Start the timer
         }
     }//GEN-LAST:event_jButton5MouseClicked
 
