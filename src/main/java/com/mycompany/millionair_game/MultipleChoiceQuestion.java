@@ -109,6 +109,4 @@ public class MultipleChoiceQuestion //extends AbstractQuestion
     {
         return select.equals(correctAnswer);
     }
-    
-
 }
