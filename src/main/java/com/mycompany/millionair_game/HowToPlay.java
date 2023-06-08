@@ -12,13 +12,15 @@ import java.awt.Color;
  */
 public class HowToPlay extends javax.swing.JFrame {
 
-    private FileIO file;
+    private final FileIO file;
+    private final Player player;
     /**
      * Creates new form HowToPlay
      */
-    public HowToPlay() {
+    public HowToPlay(Player player) {
         initComponents();
         file = new FileIO();
+        this.player = player;
     }
 
     /**
@@ -103,7 +105,7 @@ public class HowToPlay extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        GUI gui = new GUI();
+        GUI gui = new GUI(player);
         gui.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed

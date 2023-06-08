@@ -18,64 +18,66 @@ public class GUI extends javax.swing.JFrame
     private final Skipped skip;
     private Player player;
     
-    public GUI() 
+    public GUI(Player player) 
     {
         initComponents();
         question = new MultipleChoiceQuestion();
-        finish = new Finish();
+        finish = new Finish(player);
         skip = new Skipped();
+        this.player = player;
+        jTextField2.setText(player.getName());
     }
     
     public void Score()
     {
         switch(questionIndex)
         {
-            case 0:
+            case 2:
             {
                 scoreLabel12.setForeground(Color.GREEN);
                 break;
             }
-            case 1:
+            case 3:
             {
                 scoreLabel10.setForeground(Color.GREEN);
                 break;
             }
-            case 2:
+            case 4:
             {
                 scoreLabel11.setForeground(Color.GREEN);
                 break;
             }
-            case 3:
+            case 5:
             {
                 scoreLabel13.setForeground(Color.GREEN);
                 break;
             }
-            case 4:
+            case 6:
             {
                 scoreLabel14.setForeground(Color.GREEN);
                 break;
             }
-            case 5:
+            case 7:
             {
                 scoreLabel15.setForeground(Color.GREEN);
                 break;
             }
-            case 6:
+            case 8:
             {
                 scoreLabel16.setForeground(Color.GREEN);
                 break;
             }
-            case 7:
+            case 9:
             {
                 scoreLabel17.setForeground(Color.GREEN);
                 break;
             }
-            case 8:
+            case 10:
             {
                 scoreLabel18.setForeground(Color.GREEN);
                 break;
             }
-            case 9:
+            case 11:
             {
                 scoreLabel19.setForeground(Color.GREEN);
                 break;
@@ -283,7 +285,7 @@ public class GUI extends javax.swing.JFrame
         });
 
         jButton7.setBackground(new java.awt.Color(255, 102, 102));
-        jButton7.setText("jButton7");
+        jButton7.setText("Exit");
         jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton7MouseClicked(evt);
@@ -410,6 +412,7 @@ public class GUI extends javax.swing.JFrame
     }//GEN-LAST:event_jTextField1MouseClicked
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+
         newQuestion();
     }//GEN-LAST:event_formWindowActivated
 
