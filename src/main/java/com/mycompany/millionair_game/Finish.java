@@ -11,12 +11,14 @@ import java.awt.Color;
  * @author User
  */
 public class Finish extends javax.swing.JFrame {
-
+    private FileIO file;
+    
     /**
      * Creates new form Finish
      */
     public Finish() {
         initComponents();
+        file = new FileIO();
     }
 
     /**
@@ -40,6 +42,11 @@ public class Finish extends javax.swing.JFrame {
                 formMouseMoved(evt);
             }
         });
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jLabel1.setText("GAME OVER");
 
@@ -47,10 +54,10 @@ public class Finish extends javax.swing.JFrame {
 
         jLabel2.setText("THANK YOU FOR PLAYING");
 
-        jButton1.setBackground(new java.awt.Color(0, 51, 51));
+        jButton1.setBackground(new java.awt.Color(255, 102, 102));
         jButton1.setText("Quit");
 
-        jButton2.setBackground(new java.awt.Color(0, 51, 51));
+        jButton2.setBackground(new java.awt.Color(153, 255, 153));
         jButton2.setText("Play Again");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -119,6 +126,11 @@ public class Finish extends javax.swing.JFrame {
         login.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2MouseClicked
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // TODO add your handling code here:
+        file.printHighScores();
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments

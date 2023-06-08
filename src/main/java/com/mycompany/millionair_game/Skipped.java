@@ -8,17 +8,15 @@ package com.mycompany.millionair_game;
  *
  * @author User
  */
-public class Skipped 
+public class Skipped extends AbstractJoker
 {
-    private static boolean skiped = false;
-    
-    public static boolean isSkiped()
+    public boolean isSkiped()
     {
-        return skiped;
+        return isUsed();
     }
-    public static void setSkiped(boolean used)
+    public void setSkiped(boolean used)
     {
-        skiped = used;
+        setUsed(used);
     }
 }
 

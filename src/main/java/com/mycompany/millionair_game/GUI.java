@@ -5,7 +5,6 @@
 package com.mycompany.millionair_game;
 
 import java.awt.Color;
-import java.util.Collections;
 import java.util.List;
 /**
  *
@@ -13,15 +12,18 @@ import java.util.List;
  */
 public class GUI extends javax.swing.JFrame
 {
-    private MultipleChoiceQuestion question;
+    private final MultipleChoiceQuestion question;
     private int questionIndex = 0;
-    private Finish finish;
+    private final Finish finish;
+    private final Skipped skip;
+    private Player player;
     
     public GUI() 
     {
         initComponents();
         question = new MultipleChoiceQuestion();
         finish = new Finish();
+        skip = new Skipped();
     }
     
     public void Score()
@@ -131,6 +133,7 @@ public class GUI extends javax.swing.JFrame
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jTextField2 = new javax.swing.JTextField();
+        jButton7 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -279,6 +282,14 @@ public class GUI extends javax.swing.JFrame
             }
         });
 
+        jButton7.setBackground(new java.awt.Color(255, 102, 102));
+        jButton7.setText("jButton7");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -286,29 +297,31 @@ public class GUI extends javax.swing.JFrame
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(360, 360, 360)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(360, 360, 360)
+                        .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(76, Short.MAX_VALUE)
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jButton1)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton2))
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 735, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton7))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 70, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jButton1)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jButton2))
+                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 735, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(18, 18, 18)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(scoreLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -329,7 +342,9 @@ public class GUI extends javax.swing.JFrame
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton7))
                         .addGap(26, 26, 26)
                         .addComponent(jLabel1)
                         .addGap(48, 48, 48)
@@ -432,26 +447,25 @@ public class GUI extends javax.swing.JFrame
         {
             jButton4.setBackground(Color.RED);
             //The timer was made from ChatGPT
-            javax.swing.Timer timer = new javax.swing.Timer(1000, (e) -> 
-            {
-                finish.setVisible(true);
-                this.dispose();
-            });
-            timer.setRepeats(false); // Set the timer to execute only once
-            timer.start(); // Start the timer
+//            javax.swing.Timer timer = new javax.swing.Timer(1000, (e) -> 
+//            {
+//                finish.setVisible(true);
+//                this.dispose();
+//            });
+//            timer.setRepeats(false); // Set the timer to execute only once
+//            timer.start(); // Start the timer
         }
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
-        if(!Skipped.isSkiped())
+        if(!skip.isSkiped())
         {
             newQuestion();
-            Skipped.setSkiped(true);
+            skip.setSkiped(true);
         }
     }//GEN-LAST:event_jButton2MouseClicked
 
-    
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
         
@@ -486,13 +500,13 @@ public class GUI extends javax.swing.JFrame
         else 
         {
             jButton3.setBackground(Color.RED);
-            javax.swing.Timer timer = new javax.swing.Timer(1000, (e) -> 
-            {
-                finish.setVisible(true);
-                this.dispose();
-            });
-            timer.setRepeats(false); // Set the timer to execute only once
-            timer.start(); // Start the timer
+//            javax.swing.Timer timer = new javax.swing.Timer(1000, (e) -> 
+//            {
+//                finish.setVisible(true);
+//                this.dispose();
+//            });
+//            timer.setRepeats(false); // Set the timer to execute only once
+//            timer.start(); // Start the timer
         }
       
     }//GEN-LAST:event_jButton3MouseClicked
@@ -516,13 +530,13 @@ public class GUI extends javax.swing.JFrame
         else 
         {
             jButton6.setBackground(Color.RED);
-            javax.swing.Timer timer = new javax.swing.Timer(1000, (e) -> 
-            {
-                finish.setVisible(true);
-                this.dispose();
-            });
-            timer.setRepeats(false); // Set the timer to execute only once
-            timer.start(); // Start the timer
+//            javax.swing.Timer timer = new javax.swing.Timer(1000, (e) -> 
+//            {
+//                finish.setVisible(true);
+//                this.dispose();
+//            });
+//            timer.setRepeats(false); // Set the timer to execute only once
+//            timer.start(); // Start the timer
         }
     }//GEN-LAST:event_jButton6MouseClicked
 
@@ -545,54 +559,22 @@ public class GUI extends javax.swing.JFrame
         else 
         {
             jButton5.setBackground(Color.RED);
-            javax.swing.Timer timer = new javax.swing.Timer(1000, (e) -> 
-            {
-                finish.setVisible(true);
-                this.dispose();
-            });
-            timer.setRepeats(false); // Set the timer to execute only once
-            timer.start(); // Start the timer
+//            javax.swing.Timer timer = new javax.swing.Timer(1000, (e) -> 
+//            {
+//                finish.setVisible(true);
+//                this.dispose();
+//            });
+//            timer.setRepeats(false); // Set the timer to execute only once
+//            timer.start(); // Start the timer
         }
     }//GEN-LAST:event_jButton5MouseClicked
 
-    /**
-     * @param args
-     * @param args the command line arguments
-     */
-   
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new GUI().setVisible(true);
-//            }
-//        });
-//    }
-
-    
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+        // TODO add your handling code here:
+        finish.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton7MouseClicked
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -600,6 +582,7 @@ public class GUI extends javax.swing.JFrame
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;

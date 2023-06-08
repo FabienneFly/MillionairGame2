@@ -91,12 +91,12 @@
         <Component class="javax.swing.JTextArea" name="jTextArea2">
           <Properties>
             <Property name="columns" type="int" value="20"/>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="18" style="0"/>
-            </Property>
             <Property name="rows" type="int" value="5"/>
             <Property name="text" type="java.lang.String" value="The game consists of a series of multiple-choice questions.&#xa;------------------------------------------------------------------------------------------------------------------------------&#xa;1. Your goal is to answer all the questions correctly and win the top prize of one million dollars.&#xa;2. You will be given four possible answers for each question, and you must choose the one that you think is correct.&#xa;3. You have two &quot;lifelines&quot; that you can use to help you answer a question: one 50/50-joker and one Skip-joker.&#xa;4. If you answer a question correctly, you will advance to the next question and your potential winnings will increase.&#xa;5. If you answer a question incorrectly, you will lose all your winnings and the game will be over.&#xa;6. If you reach the end of the game and answer the final question correctly, you will win the top prize.&#xa;------------------------------------------------------------------------------------------------------------------------------&#xa;&#xa;That&apos;s it! Have fun!&#xa;&#xa;------------------------------------------------------------------------------------------------------------------------------&#xa;"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseMoved" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="jTextArea2MouseMoved"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

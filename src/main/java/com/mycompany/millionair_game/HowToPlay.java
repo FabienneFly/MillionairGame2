@@ -12,11 +12,13 @@ import java.awt.Color;
  */
 public class HowToPlay extends javax.swing.JFrame {
 
+    private FileIO file;
     /**
      * Creates new form HowToPlay
      */
     public HowToPlay() {
         initComponents();
+        file = new FileIO();
     }
 
     /**
@@ -57,9 +59,13 @@ public class HowToPlay extends javax.swing.JFrame {
         });
 
         jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jTextArea2.setRows(5);
         jTextArea2.setText("The game consists of a series of multiple-choice questions.\n------------------------------------------------------------------------------------------------------------------------------\n1. Your goal is to answer all the questions correctly and win the top prize of one million dollars.\n2. You will be given four possible answers for each question, and you must choose the one that you think is correct.\n3. You have two \"lifelines\" that you can use to help you answer a question: one 50/50-joker and one Skip-joker.\n4. If you answer a question correctly, you will advance to the next question and your potential winnings will increase.\n5. If you answer a question incorrectly, you will lose all your winnings and the game will be over.\n6. If you reach the end of the game and answer the final question correctly, you will win the top prize.\n------------------------------------------------------------------------------------------------------------------------------\n\nThat's it! Have fun!\n\n------------------------------------------------------------------------------------------------------------------------------\n");
+        jTextArea2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jTextArea2MouseMoved(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTextArea2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -111,41 +117,10 @@ public class HowToPlay extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1MouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(HowToPlay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(HowToPlay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(HowToPlay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(HowToPlay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                GUI start = new GUI();
-//                start.setVisible(true);
-//            }
-//        });
-//    }
+    private void jTextArea2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextArea2MouseMoved
+        // TODO add your handling code here:
+        file.helpScreen();
+    }//GEN-LAST:event_jTextArea2MouseMoved
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -153,6 +128,4 @@ public class HowToPlay extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea2;
     // End of variables declaration//GEN-END:variables
-
-
 }
