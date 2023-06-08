@@ -11,10 +11,9 @@ import java.awt.Color;
  * @author User
  */
 public class Login extends javax.swing.JFrame {
+
     private Player player;
-    /**
-     * Creates new form Login
-     */
+
     public Login(Player player) {
         initComponents();
         this.player = player;
@@ -89,6 +88,10 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        String name = jTextField1.getText();
+// Create the new player
+        player = new Player(name, 0);
+
         HowToPlay help = new HowToPlay(player);
         help.setVisible(true);
         dispose();
@@ -101,8 +104,7 @@ public class Login extends javax.swing.JFrame {
 
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
         // TODO add your handling code here:
-        String name = jTextField1.getText();
-        player = new Player(name, 0);
+
     }//GEN-LAST:event_jTextField1KeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

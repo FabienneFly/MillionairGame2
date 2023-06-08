@@ -6,107 +6,92 @@ package com.mycompany.millionair_game;
 
 import java.awt.Color;
 import java.util.List;
+
 /**
  *
  * @author User
  */
-public class GUI extends javax.swing.JFrame
-{
+public class GUI extends javax.swing.JFrame {
+
     private final MultipleChoiceQuestion question;
     private int questionIndex = 0;
     private final Finish finish;
     private final Skipped skip;
     private Player player;
-    
-    public GUI(Player player) 
-    {
+
+    public GUI(Player player) {
         initComponents();
         question = new MultipleChoiceQuestion();
         finish = new Finish(player);
         skip = new Skipped();
         this.player = player;
-        jTextField2.setText(player.getName());
+        jTextField2.setText("Player:"); // Set the initial text without the player's name
+        jTextField2.setText(jTextField2.getText() + " " + player.getName());
     }
-    
-    public void Score()
-    {
-        switch(questionIndex)
-        {
-            case 2:
-            {
+
+    public void Score() {
+        switch (questionIndex) {
+            case 2: {
                 scoreLabel12.setForeground(Color.GREEN);
                 break;
             }
-            case 3:
-            {
+            case 3: {
                 scoreLabel10.setForeground(Color.GREEN);
                 break;
             }
-            case 4:
-            {
+            case 4: {
                 scoreLabel11.setForeground(Color.GREEN);
                 break;
             }
-            case 5:
-            {
+            case 5: {
                 scoreLabel13.setForeground(Color.GREEN);
                 break;
             }
-            case 6:
-            {
+            case 6: {
                 scoreLabel14.setForeground(Color.GREEN);
                 break;
             }
-            case 7:
-            {
+            case 7: {
                 scoreLabel15.setForeground(Color.GREEN);
                 break;
             }
-            case 8:
-            {
+            case 8: {
                 scoreLabel16.setForeground(Color.GREEN);
                 break;
             }
-            case 9:
-            {
+            case 9: {
                 scoreLabel17.setForeground(Color.GREEN);
                 break;
             }
-            case 10:
-            {
+            case 10: {
                 scoreLabel18.setForeground(Color.GREEN);
                 break;
             }
-            case 11:
-            {
+            case 11: {
                 scoreLabel19.setForeground(Color.GREEN);
                 break;
             }
         }
     }
-    
-    private void newQuestion()
-    {
-        if(questionIndex < 10)
-        {
+
+    private void newQuestion() {
+        if (questionIndex < 10) {
             question.fetchQuestion(0);
             jTextField1.setText(question.getQuestion());
-    
+
             List<String> choices = question.display(0);
             jButton4.setText(choices.get(0));
             jButton3.setText(choices.get(1));
             jButton6.setText(choices.get(2));
             jButton5.setText(choices.get(3));
-            
+
             jButton4.setBackground(null);
             jButton3.setBackground(null);
             jButton6.setBackground(null);
             jButton5.setBackground(null);
-            
+
             questionIndex++;
-        }
-        else
-        {
+        } else {
             finish.setVisible(true);
             this.dispose();
         }
@@ -408,7 +393,7 @@ public class GUI extends javax.swing.JFrame
 
     private void jTextField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField1MouseClicked
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jTextField1MouseClicked
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -422,32 +407,29 @@ public class GUI extends javax.swing.JFrame
 
     private void jTextField1InputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_jTextField1InputMethodTextChanged
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jTextField1InputMethodTextChanged
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-       
+
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         // TODO add your handling code here:
         String select = jButton4.getText();
         boolean isCorrect = question.isAnswerCorrect(select);
-        if (isCorrect) 
-        {
+        if (isCorrect) {
             jButton4.setBackground(Color.GREEN);
-            javax.swing.Timer timer = new javax.swing.Timer(1000, (e) -> 
-            {
-               // Execute newQuestion() after 1 seconds
+            javax.swing.Timer timer = new javax.swing.Timer(1000, (e)
+                    -> {
+                // Execute newQuestion() after 1 seconds
                 newQuestion();
                 Score();
             });
             timer.setRepeats(false); // Set the timer to execute only once
             timer.start(); // Start the timer
-        }
-        else 
-        {
+        } else {
             jButton4.setBackground(Color.RED);
             //The timer was made from ChatGPT
 //            javax.swing.Timer timer = new javax.swing.Timer(1000, (e) -> 
@@ -462,8 +444,7 @@ public class GUI extends javax.swing.JFrame
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
-        if(!skip.isSkiped())
-        {
+        if (!skip.isSkiped()) {
             newQuestion();
             skip.setSkiped(true);
         }
@@ -471,37 +452,34 @@ public class GUI extends javax.swing.JFrame
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jTextField2KeyTyped
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         // TODO add your handling code here:
         String select = jButton3.getText();
         boolean isCorrect = question.isAnswerCorrect(select);
-        if (isCorrect) 
-        {
+        if (isCorrect) {
             jButton3.setBackground(Color.GREEN);
-            javax.swing.Timer timer = new javax.swing.Timer(1000, (e) -> 
-            {
+            javax.swing.Timer timer = new javax.swing.Timer(1000, (e)
+                    -> {
                 // Execute newQuestion() after 1 seconds
                 newQuestion();
                 Score();
             });
             timer.setRepeats(false); // Set the timer to execute only once
             timer.start(); // Start the timer
-        }
-        else 
-        {
+        } else {
             jButton3.setBackground(Color.RED);
 //            javax.swing.Timer timer = new javax.swing.Timer(1000, (e) -> 
 //            {
@@ -511,27 +489,24 @@ public class GUI extends javax.swing.JFrame
 //            timer.setRepeats(false); // Set the timer to execute only once
 //            timer.start(); // Start the timer
         }
-      
+
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
         // TODO add your handling code here:
         String select = jButton6.getText();
         boolean isCorrect = question.isAnswerCorrect(select);
-        if (isCorrect) 
-        {
+        if (isCorrect) {
             jButton6.setBackground(Color.GREEN);
-            javax.swing.Timer timer = new javax.swing.Timer(1000, (e) -> 
-            {
+            javax.swing.Timer timer = new javax.swing.Timer(1000, (e)
+                    -> {
                 // Execute newQuestion() after 1 seconds
                 newQuestion();
                 Score();
             });
             timer.setRepeats(false); // Set the timer to execute only once
             timer.start(); // Start the timer
-        }
-        else 
-        {
+        } else {
             jButton6.setBackground(Color.RED);
 //            javax.swing.Timer timer = new javax.swing.Timer(1000, (e) -> 
 //            {
@@ -547,20 +522,17 @@ public class GUI extends javax.swing.JFrame
         // TODO add your handling code here:
         String select = jButton5.getText();
         boolean isCorrect = question.isAnswerCorrect(select);
-        if (isCorrect) 
-        {
+        if (isCorrect) {
             jButton5.setBackground(Color.GREEN);
-            javax.swing.Timer timer = new javax.swing.Timer(1000, (e) -> 
-            {
+            javax.swing.Timer timer = new javax.swing.Timer(1000, (e)
+                    -> {
                 // Execute newQuestion() after 1 seconds
                 newQuestion();
                 Score();
             });
             timer.setRepeats(false); // Set the timer to execute only once
             timer.start(); // Start the timer
-        }
-        else 
-        {
+        } else {
             jButton5.setBackground(Color.RED);
 //            javax.swing.Timer timer = new javax.swing.Timer(1000, (e) -> 
 //            {
@@ -577,7 +549,7 @@ public class GUI extends javax.swing.JFrame
         finish.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton7MouseClicked
- 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
