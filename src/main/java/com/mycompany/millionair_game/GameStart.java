@@ -19,9 +19,7 @@ public class GameStart {
         //Welcomes Player
         System.out.println("Welcome to the Who wants to be a millionair game :) Here are the rules:\n");
 
-        //Prints the Helpscreen
-        FileIO helpScreen = new FileIO();
-        helpScreen.helpScreen();
+  
 
         //Handles UserInput (Name or Exit)
         do {
