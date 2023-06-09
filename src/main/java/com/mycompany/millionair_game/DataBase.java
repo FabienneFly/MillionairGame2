@@ -49,15 +49,16 @@ public class DataBase {
         StringBuilder tableString = new StringBuilder();
         try {
             this.statement = conn.createStatement();
-            ResultSet rs = this.statement.executeQuery("SELECT * FROM USERS");
+            ResultSet rs = this.statement.executeQuery(
+                    "SELECT * FROM USERS ORDER BY SCORE DESC FETCH FIRST 3 ROWS ONLY");
 
+            int rank = 1;
             while (rs.next()) {
                 String name = rs.getString("USERNAME");
                 int score = rs.getInt("SCORE");
 
-                tableString.append("NAME: ").append(name).append("\n");
-                tableString.append("SCORE: ").append(score).append("\n");
-                tableString.append("-------------------\n");
+                tableString.append(rank).append(". ").append(name).append(": ").append(score).append("\n");
+                rank++;
             }
 
             rs.close();
