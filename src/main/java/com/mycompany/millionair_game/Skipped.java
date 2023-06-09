@@ -19,7 +19,4 @@ public class Skipped extends AbstractJoker
         setUsed(used);
     }
 }
-
-    
-    
     
