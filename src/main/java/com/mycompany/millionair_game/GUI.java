@@ -397,7 +397,6 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1MouseClicked
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-
         newQuestion();
     }//GEN-LAST:event_formWindowActivated
 
@@ -444,9 +443,14 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
-        if (!skip.isSkiped()) {
-            newQuestion();
+        if (!skip.isSkiped()) 
+        {
             skip.setSkiped(true);
+            newQuestion();
+        }
+        else
+        {
+            jButton2.setForeground(Color.RED);
         }
     }//GEN-LAST:event_jButton2MouseClicked
 

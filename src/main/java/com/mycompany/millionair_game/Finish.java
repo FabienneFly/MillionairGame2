@@ -56,6 +56,11 @@ public class Finish extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(255, 102, 102));
         jButton1.setText("Quit");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(153, 255, 153));
         jButton2.setText("Play Again");
@@ -133,6 +138,12 @@ public class Finish extends javax.swing.JFrame {
         
 //        file.printHighScores();
     }//GEN-LAST:event_formWindowActivated
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        //from chatGPT
+        System.exit(0);
+    }//GEN-LAST:event_jButton1MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
