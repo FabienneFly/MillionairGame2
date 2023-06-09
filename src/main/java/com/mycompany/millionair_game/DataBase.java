@@ -45,27 +45,24 @@ public class DataBase {
         }
     }
 
-    public String showTable() {
-        StringBuilder tableString = new StringBuilder();
+    public void showTable() {
         try {
             this.statement = conn.createStatement();
-            ResultSet rs = this.statement.executeQuery(
-                    "SELECT * FROM USERS ORDER BY SCORE DESC FETCH FIRST 3 ROWS ONLY");
+            ResultSet rs = this.statement.executeQuery("SELECT * FROM USERS");
 
-            int rank = 1;
             while (rs.next()) {
                 String name = rs.getString("USERNAME");
                 int score = rs.getInt("SCORE");
 
-                tableString.append(rank).append(". ").append(name).append(": ").append(score).append("\n");
-                rank++;
+                System.out.println("NAME: " + name);
+                System.out.println("SCORE: " + score);
+                System.out.println("-------------------");
             }
 
             rs.close();
         } catch (SQLException ex) {
-            tableString.append(ex.getMessage());
+            System.out.println(ex.getMessage());
         }
-        return tableString.toString();
     }
 
     public void checkExistedTable(String name) {
