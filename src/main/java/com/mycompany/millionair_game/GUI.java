@@ -33,42 +33,52 @@ public class GUI extends javax.swing.JFrame {
         switch (questionIndex) {
             case 2: {
                 scoreLabel12.setForeground(Color.GREEN);
+                player.setMoney(player.getMoney() + 100000);
                 break;
             }
             case 3: {
                 scoreLabel10.setForeground(Color.GREEN);
+                player.setMoney(player.getMoney() + 100000);
                 break;
             }
             case 4: {
                 scoreLabel11.setForeground(Color.GREEN);
+                player.setMoney(player.getMoney() + 100000);
                 break;
             }
             case 5: {
                 scoreLabel13.setForeground(Color.GREEN);
+                player.setMoney(player.getMoney() + 100000);
                 break;
             }
             case 6: {
                 scoreLabel14.setForeground(Color.GREEN);
+                player.setMoney(player.getMoney() + 100000);
                 break;
             }
             case 7: {
                 scoreLabel15.setForeground(Color.GREEN);
+                player.setMoney(player.getMoney() + 100000);
                 break;
             }
             case 8: {
                 scoreLabel16.setForeground(Color.GREEN);
+                player.setMoney(player.getMoney() + 100000);
                 break;
             }
             case 9: {
                 scoreLabel17.setForeground(Color.GREEN);
+                player.setMoney(player.getMoney() + 100000);
                 break;
             }
             case 10: {
                 scoreLabel18.setForeground(Color.GREEN);
+                player.setMoney(player.getMoney() + 100000);
                 break;
             }
             case 11: {
                 scoreLabel19.setForeground(Color.GREEN);
+                player.setMoney(player.getMoney() + 100000);
                 break;
             }
         }
@@ -426,28 +436,30 @@ public class GUI extends javax.swing.JFrame {
                 // Execute newQuestion() after 1 seconds
                 newQuestion();
                 Score();
+//                player.setMoney(player.getMoney() + 100000); // Increase the score by 100,000 (or any desired value)
             });
             timer.setRepeats(false); // Set the timer to execute only once
             timer.start(); // Start the timer
         } else {
             jButton4.setBackground(Color.RED);
-            //The timer was made from ChatGPT
-//            javax.swing.Timer timer = new javax.swing.Timer(1000, (e) -> 
-//            {
-//                finish.setVisible(true);
-//                this.dispose();
-//            });
-//            timer.setRepeats(false); // Set the timer to execute only once
-//            timer.start(); // Start the timer
+//            The timer was made from ChatGPT
+            javax.swing.Timer timer = new javax.swing.Timer(1000, (e)
+                    -> {
+                finish.setVisible(true);
+                this.dispose();
+            });
+            timer.setRepeats(false); // Set the timer to execute only once
+            timer.start(); // Start the timer
         }
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
         if (!skip.isSkiped()) {
-            newQuestion();
             skip.setSkiped(true);
-        }
+
+            newQuestion();
+        } 
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
@@ -481,13 +493,13 @@ public class GUI extends javax.swing.JFrame {
             timer.start(); // Start the timer
         } else {
             jButton3.setBackground(Color.RED);
-//            javax.swing.Timer timer = new javax.swing.Timer(1000, (e) -> 
-//            {
-//                finish.setVisible(true);
-//                this.dispose();
-//            });
-//            timer.setRepeats(false); // Set the timer to execute only once
-//            timer.start(); // Start the timer
+            javax.swing.Timer timer = new javax.swing.Timer(1000, (e)
+                    -> {
+                finish.setVisible(true);
+                this.dispose();
+            });
+            timer.setRepeats(false); // Set the timer to execute only once
+            timer.start(); // Start the timer
         }
 
     }//GEN-LAST:event_jButton3MouseClicked
@@ -508,13 +520,13 @@ public class GUI extends javax.swing.JFrame {
             timer.start(); // Start the timer
         } else {
             jButton6.setBackground(Color.RED);
-//            javax.swing.Timer timer = new javax.swing.Timer(1000, (e) -> 
-//            {
-//                finish.setVisible(true);
-//                this.dispose();
-//            });
-//            timer.setRepeats(false); // Set the timer to execute only once
-//            timer.start(); // Start the timer
+            javax.swing.Timer timer = new javax.swing.Timer(1000, (e)
+                    -> {
+                finish.setVisible(true);
+                this.dispose();
+            });
+            timer.setRepeats(false); // Set the timer to execute only once
+            timer.start(); // Start the timer
         }
     }//GEN-LAST:event_jButton6MouseClicked
 
@@ -534,13 +546,13 @@ public class GUI extends javax.swing.JFrame {
             timer.start(); // Start the timer
         } else {
             jButton5.setBackground(Color.RED);
-//            javax.swing.Timer timer = new javax.swing.Timer(1000, (e) -> 
-//            {
-//                finish.setVisible(true);
-//                this.dispose();
-//            });
-//            timer.setRepeats(false); // Set the timer to execute only once
-//            timer.start(); // Start the timer
+            javax.swing.Timer timer = new javax.swing.Timer(1000, (e)
+                    -> {
+                finish.setVisible(true);
+                this.dispose();
+            });
+            timer.setRepeats(false); // Set the timer to execute only once
+            timer.start(); // Start the timer
         }
     }//GEN-LAST:event_jButton5MouseClicked
 

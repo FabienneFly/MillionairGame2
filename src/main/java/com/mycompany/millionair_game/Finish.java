@@ -11,16 +11,23 @@ import java.awt.Color;
  * @author User
  */
 public class Finish extends javax.swing.JFrame {
-//    private final FileIO file;
-    private Player player;
-    
+
+    private final DBManager dbManager;
+
+    private final Player player;
+
     /**
      * Creates new form Finish
+     * @param player
      */
     public Finish(Player player) {
         initComponents();
         this.player = player;
-//        file = new FileIO();
+        dbManager = DBManager.getInstance();
+        dbManager.establishConnection();
+
+        dbManager.savePlayerStats(player);
+
     }
 
     /**
@@ -56,6 +63,11 @@ public class Finish extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(255, 102, 102));
         jButton1.setText("Quit");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(153, 255, 153));
         jButton2.setText("Play Again");
@@ -117,7 +129,7 @@ public class Finish extends javax.swing.JFrame {
 
     private void formMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseMoved
         // TODO add your handling code here:
-         this.getContentPane().setBackground(Color.GRAY);
+        this.getContentPane().setBackground(Color.GRAY);
     }//GEN-LAST:event_formMouseMoved
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
@@ -129,10 +141,14 @@ public class Finish extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         // TODO add your handling code here:
-        jTextField1.setText("High Score: \n");
-        
+        jTextField1.setText("High Score: \n" + player.getMoney());
+
 //        file.printHighScores();
     }//GEN-LAST:event_formWindowActivated
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        System.exit(0);   // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
