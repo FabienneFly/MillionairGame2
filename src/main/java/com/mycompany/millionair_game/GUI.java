@@ -5,6 +5,9 @@
 package com.mycompany.millionair_game;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -18,6 +21,8 @@ public class GUI extends javax.swing.JFrame {
     private final Finish finish;
     private final Skipped skip;
     private Player player;
+        private boolean used = false;
+
 
     public GUI(Player player) {
         initComponents();
@@ -422,6 +427,38 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
+         if(!used)
+        {
+            String correctAnswer = question.getCorrectAnswer();
+            List<String> choices = new ArrayList<>(Arrays.asList(jButton4.getText(), jButton3.getText(), jButton6.getText(), jButton5.getText()));
+            choices.remove(correctAnswer); 
+            Collections.shuffle(choices);
+
+            if (!choices.isEmpty()) 
+            {
+                String incorrectAnswer1 = choices.get(0);
+                String incorrectAnswer2 = choices.get(1);
+
+                if (jButton4.getText().equals(incorrectAnswer1) || jButton4.getText().equals(incorrectAnswer2)) 
+                {
+                    jButton4.setBackground(Color.RED);
+                }
+                if (jButton3.getText().equals(incorrectAnswer1) || jButton3.getText().equals(incorrectAnswer2))
+                {
+                    jButton3.setBackground(Color.RED);
+                }
+                if (jButton6.getText().equals(incorrectAnswer1) || jButton6.getText().equals(incorrectAnswer2)) 
+                {
+                    jButton6.setBackground(Color.RED);
+                }
+                if (jButton5.getText().equals(incorrectAnswer1) || jButton5.getText().equals(incorrectAnswer2)) 
+                {
+                    jButton5.setBackground(Color.RED);
+                }
+            }
+            jButton1.setForeground(Color.RED);
+            used = true;          
+        }
 
     }//GEN-LAST:event_jButton1MouseClicked
 
