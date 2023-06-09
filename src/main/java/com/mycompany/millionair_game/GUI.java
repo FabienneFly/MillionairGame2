@@ -382,7 +382,6 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1MouseClicked
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-
         newQuestion();
     }//GEN-LAST:event_formWindowActivated
 
