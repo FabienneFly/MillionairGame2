@@ -24,7 +24,7 @@ public class DataBase {
 
     }
 
-    public void connectDB() {
+    public final void connectDB() {
         try {
             this.statement = conn.createStatement();
         } catch (SQLException ex) {
@@ -32,7 +32,7 @@ public class DataBase {
         }
     }
 
-    public void checkAndCreateTable(String tableName) {
+    public final void checkAndCreateTable(String tableName) {
         try {
             DatabaseMetaData dbmd = conn.getMetaData();
             ResultSet tables = dbmd.getTables(null, null, tableName.toUpperCase(), null);
