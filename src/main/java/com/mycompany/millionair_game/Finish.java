@@ -28,6 +28,7 @@ public class Finish extends javax.swing.JFrame {
         dbManager = DBManager.getInstance();
         dbManager.establishConnection();
         db.showTable();
+
     }
 
     /**
@@ -83,9 +84,14 @@ public class Finish extends javax.swing.JFrame {
             }
         });
 
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jTextArea1.setRows(5);
+        jTextArea1.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextArea1.setEnabled(false);
+        jTextArea1.setMargin(new java.awt.Insets(80, 150, 2, 6));
+        jTextArea1.setSelectedTextColor(new java.awt.Color(250, 250, 250));
         jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -148,9 +154,8 @@ public class Finish extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         // TODO add your handling code here:
         dbManager.savePlayerStats(player);
-        jTextArea1.setText("Your Score: " + player.getMoney() + "\n \n" + "Top 3: \n" + db.showTable());
+        jTextArea1.setText("Your Score: " + player.getMoney() + "\n \n" + "Top 3: \n" +db.showTable());
 
-//        file.printHighScores();
     }//GEN-LAST:event_formWindowActivated
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
