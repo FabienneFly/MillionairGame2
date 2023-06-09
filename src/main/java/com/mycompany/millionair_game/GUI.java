@@ -34,57 +34,47 @@ public class GUI extends javax.swing.JFrame {
     }
 
     public void Score() {
-        switch (questionIndex) {
-            case 2: {
-                scoreLabel12.setForeground(Color.GREEN);
-                player.setMoney(player.getMoney() + 100000);
-                break;
-            }
-            case 3: {
-                scoreLabel10.setForeground(Color.GREEN);
-                player.setMoney(player.getMoney() + 100000);
-                break;
-            }
-            case 4: {
-                scoreLabel11.setForeground(Color.GREEN);
-                player.setMoney(player.getMoney() + 100000);
-                break;
-            }
-            case 5: {
-                scoreLabel13.setForeground(Color.GREEN);
-                player.setMoney(player.getMoney() + 100000);
-                break;
-            }
-            case 6: {
-                scoreLabel14.setForeground(Color.GREEN);
-                player.setMoney(player.getMoney() + 100000);
-                break;
-            }
-            case 7: {
-                scoreLabel15.setForeground(Color.GREEN);
-                player.setMoney(player.getMoney() + 100000);
-                break;
-            }
-            case 8: {
-                scoreLabel16.setForeground(Color.GREEN);
-                player.setMoney(player.getMoney() + 100000);
-                break;
-            }
-            case 9: {
-                scoreLabel17.setForeground(Color.GREEN);
-                player.setMoney(player.getMoney() + 100000);
-                break;
-            }
-            case 10: {
-                scoreLabel18.setForeground(Color.GREEN);
-                player.setMoney(player.getMoney() + 100000);
-                break;
-            }
-            case 11: {
-                scoreLabel19.setForeground(Color.GREEN);
-                player.setMoney(player.getMoney() + 100000);
-                break;
-            }
+        int money = player.getMoney();
+        
+        if (money >= 100000 && money < 200000) 
+        {
+            scoreLabel12.setForeground(Color.GREEN);
+        } 
+        else if (money >= 200000 && money < 300000) 
+        {
+            scoreLabel10.setForeground(Color.GREEN);
+        } 
+        else if (money >= 300000 && money < 400000) 
+        {
+            scoreLabel11.setForeground(Color.GREEN);
+        } 
+        else if (money >= 400000 && money < 500000) 
+        {
+            scoreLabel13.setForeground(Color.GREEN);
+        } 
+        else if (money >= 500000 && money < 600000) 
+        {
+            scoreLabel14.setForeground(Color.GREEN);
+        } 
+        else if (money >= 600000 && money < 700000) 
+        {
+            scoreLabel15.setForeground(Color.GREEN);
+        } 
+        else if (money >= 700000 && money < 800000) 
+        {
+            scoreLabel16.setForeground(Color.GREEN);
+        } 
+        else if (money >= 800000 && money < 900000) 
+        {
+            scoreLabel17.setForeground(Color.GREEN);
+        } 
+        else if (money >= 900000 && money < 1000000) 
+        {
+            scoreLabel18.setForeground(Color.GREEN);
+        } 
+        else if (money >= 1000000) 
+        {
+            scoreLabel19.setForeground(Color.GREEN);
         }
     }
 
@@ -105,9 +95,15 @@ public class GUI extends javax.swing.JFrame {
             jButton5.setBackground(null);
 
             questionIndex++;
-        } else {
-            finish.setVisible(true);
-            this.dispose();
+        } else 
+        {
+            javax.swing.Timer timer = new javax.swing.Timer(1000, (e)
+                -> {
+                finish.setVisible(true);
+                this.dispose();
+            });
+            timer.setRepeats(false); // Set the timer to execute only once
+            timer.start(); // Start the timer
         }
     }
 
@@ -425,16 +421,14 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-//        if(!used)
+        
+        if(!used)
         {
             String correctAnswer = question.getCorrectAnswer();
             List<String> choices = new ArrayList<>(Arrays.asList(jButton4.getText(), jButton3.getText(), jButton6.getText(), jButton5.getText()));
-            choices.remove(correctAnswer); // Remove the correct answer from the list
-
-            // Shuffle the remaining incorrect answers
+            choices.remove(correctAnswer); 
             Collections.shuffle(choices);
 
-            // Set the backgrounds of two incorrect answers to red
             if (!choices.isEmpty()) 
             {
                 String incorrectAnswer1 = choices.get(0);
@@ -457,7 +451,7 @@ public class GUI extends javax.swing.JFrame {
                     jButton5.setBackground(Color.RED);
                 }
             }
-//            jButton1.setForeground(Color.RED);
+            jButton1.setForeground(Color.RED);
             used = true;          
         }
     }//GEN-LAST:event_jButton1MouseClicked
@@ -466,35 +460,39 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         String select = jButton4.getText();
         boolean isCorrect = question.isAnswerCorrect(select);
-        if (isCorrect) {
+        if (isCorrect) 
+        {
             jButton4.setBackground(Color.GREEN);
+//            The timer was made from ChatGPT
             javax.swing.Timer timer = new javax.swing.Timer(1000, (e)
                     -> {
                 // Execute newQuestion() after 1 seconds
+                player.setMoney(player.getMoney() + 100000);
                 newQuestion();
                 Score();
 //                player.setMoney(player.getMoney() + 100000); // Increase the score by 100,000 (or any desired value)
             });
             timer.setRepeats(false); // Set the timer to execute only once
             timer.start(); // Start the timer
-        } else {
+        } 
+        else 
+        {
             jButton4.setBackground(Color.RED);
-//            The timer was made from ChatGPT
-//            javax.swing.Timer timer = new javax.swing.Timer(1000, (e)
-//                    -> {
-//                finish.setVisible(true);
-//                this.dispose();
-//            });
-//            timer.setRepeats(false); // Set the timer to execute only once
-//            timer.start(); // Start the timer
+            javax.swing.Timer timer = new javax.swing.Timer(1000, (e)
+                    -> {
+                finish.setVisible(true);
+                this.dispose();
+            });
+            timer.setRepeats(false); // Set the timer to execute only once
+            timer.start(); // Start the timer
         }
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
-        if (!skip.isSkiped()) {
+        if (!skip.isSkiped()) 
+        {
             skip.setSkiped(true);
-
             newQuestion();
         } 
         jButton2.setForeground(Color.RED);
@@ -519,25 +517,29 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         String select = jButton3.getText();
         boolean isCorrect = question.isAnswerCorrect(select);
-        if (isCorrect) {
+        if (isCorrect) 
+        {
             jButton3.setBackground(Color.GREEN);
             javax.swing.Timer timer = new javax.swing.Timer(1000, (e)
                     -> {
                 // Execute newQuestion() after 1 seconds
+                player.setMoney(player.getMoney() + 100000);
                 newQuestion();
                 Score();
             });
             timer.setRepeats(false); // Set the timer to execute only once
             timer.start(); // Start the timer
-        } else {
+        } 
+        else 
+        {
             jButton3.setBackground(Color.RED);
-//            javax.swing.Timer timer = new javax.swing.Timer(1000, (e)
-//                    -> {
-//                finish.setVisible(true);
-//                this.dispose();
-//            });
-//            timer.setRepeats(false); // Set the timer to execute only once
-//            timer.start(); // Start the timer
+            javax.swing.Timer timer = new javax.swing.Timer(1000, (e)
+                    -> {
+                finish.setVisible(true);
+                this.dispose();
+            });
+            timer.setRepeats(false); // Set the timer to execute only once
+            timer.start(); // Start the timer
         }
 
     }//GEN-LAST:event_jButton3MouseClicked
@@ -546,25 +548,29 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         String select = jButton6.getText();
         boolean isCorrect = question.isAnswerCorrect(select);
-        if (isCorrect) {
+        if (isCorrect) 
+        {
             jButton6.setBackground(Color.GREEN);
             javax.swing.Timer timer = new javax.swing.Timer(1000, (e)
                     -> {
                 // Execute newQuestion() after 1 seconds
+                player.setMoney(player.getMoney() + 100000);
                 newQuestion();
                 Score();
             });
             timer.setRepeats(false); // Set the timer to execute only once
             timer.start(); // Start the timer
-        } else {
+        } 
+        else 
+        {
             jButton6.setBackground(Color.RED);
-//            javax.swing.Timer timer = new javax.swing.Timer(1000, (e)
-//                    -> {
-//                finish.setVisible(true);
-//                this.dispose();
-//            });
-//            timer.setRepeats(false); // Set the timer to execute only once
-//            timer.start(); // Start the timer
+            javax.swing.Timer timer = new javax.swing.Timer(1000, (e)
+                    -> {
+                finish.setVisible(true);
+                this.dispose();
+            });
+            timer.setRepeats(false); // Set the timer to execute only once
+            timer.start(); // Start the timer
         }
     }//GEN-LAST:event_jButton6MouseClicked
 
@@ -572,25 +578,29 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         String select = jButton5.getText();
         boolean isCorrect = question.isAnswerCorrect(select);
-        if (isCorrect) {
+        if (isCorrect) 
+        {
             jButton5.setBackground(Color.GREEN);
             javax.swing.Timer timer = new javax.swing.Timer(1000, (e)
                     -> {
                 // Execute newQuestion() after 1 seconds
+                player.setMoney(player.getMoney() + 100000);
                 newQuestion();
                 Score();
             });
             timer.setRepeats(false); // Set the timer to execute only once
             timer.start(); // Start the timer
-        } else {
+        } 
+        else 
+        {
             jButton5.setBackground(Color.RED);
-//            javax.swing.Timer timer = new javax.swing.Timer(1000, (e)
-//                    -> {
-//                finish.setVisible(true);
-//                this.dispose();
-//            });
-//            timer.setRepeats(false); // Set the timer to execute only once
-//            timer.start(); // Start the timer
+            javax.swing.Timer timer = new javax.swing.Timer(1000, (e)
+                    -> {
+                finish.setVisible(true);
+                this.dispose();
+            });
+            timer.setRepeats(false); // Set the timer to execute only once
+            timer.start(); // Start the timer
         }
     }//GEN-LAST:event_jButton5MouseClicked
 
