@@ -45,7 +45,8 @@ public class DataBase {
         }
     }
 
-    public void showTable() {
+    public String showTable() {
+        StringBuilder tableString = new StringBuilder();
         try {
             this.statement = conn.createStatement();
             ResultSet rs = this.statement.executeQuery("SELECT * FROM USERS");
@@ -54,15 +55,16 @@ public class DataBase {
                 String name = rs.getString("USERNAME");
                 int score = rs.getInt("SCORE");
 
-                System.out.println("NAME: " + name);
-                System.out.println("SCORE: " + score);
-                System.out.println("-------------------");
+                tableString.append("NAME: ").append(name).append("\n");
+                tableString.append("SCORE: ").append(score).append("\n");
+                tableString.append("-------------------\n");
             }
 
             rs.close();
         } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
+            tableString.append(ex.getMessage());
         }
+        return tableString.toString();
     }
 
     public void checkExistedTable(String name) {

@@ -13,11 +13,13 @@ import java.awt.Color;
 public class Finish extends javax.swing.JFrame {
 
     private final DBManager dbManager;
+    private final DataBase db = new DataBase();
 
     private final Player player;
 
     /**
      * Creates new form Finish
+     *
      * @param player
      */
     public Finish(Player player) {
@@ -25,8 +27,7 @@ public class Finish extends javax.swing.JFrame {
         this.player = player;
         dbManager = DBManager.getInstance();
         dbManager.establishConnection();
-
-        dbManager.savePlayerStats(player);
+        db.showTable();
 
     }
 
@@ -141,7 +142,8 @@ public class Finish extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         // TODO add your handling code here:
-        jTextField1.setText("High Score: \n" + player.getMoney());
+        dbManager.savePlayerStats(player);
+        jTextField1.setText("High Score: \n" + player.getMoney() + " " + db.showTable());
 
 //        file.printHighScores();
     }//GEN-LAST:event_formWindowActivated
