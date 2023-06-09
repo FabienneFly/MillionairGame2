@@ -5,6 +5,9 @@
 package com.mycompany.millionair_game;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -18,6 +21,7 @@ public class GUI extends javax.swing.JFrame {
     private final Finish finish;
     private final Skipped skip;
     private Player player;
+    private boolean used = false;
 
     public GUI(Player player) {
         initComponents();
@@ -30,57 +34,28 @@ public class GUI extends javax.swing.JFrame {
     }
 
     public void Score() {
-        switch (questionIndex) {
-            case 2: {
-                scoreLabel12.setForeground(Color.GREEN);
-                player.setMoney(player.getMoney() + 100000);
-                break;
-            }
-            case 3: {
-                scoreLabel10.setForeground(Color.GREEN);
-                player.setMoney(player.getMoney() + 100000);
-                break;
-            }
-            case 4: {
-                scoreLabel11.setForeground(Color.GREEN);
-                player.setMoney(player.getMoney() + 100000);
-                break;
-            }
-            case 5: {
-                scoreLabel13.setForeground(Color.GREEN);
-                player.setMoney(player.getMoney() + 100000);
-                break;
-            }
-            case 6: {
-                scoreLabel14.setForeground(Color.GREEN);
-                player.setMoney(player.getMoney() + 100000);
-                break;
-            }
-            case 7: {
-                scoreLabel15.setForeground(Color.GREEN);
-                player.setMoney(player.getMoney() + 100000);
-                break;
-            }
-            case 8: {
-                scoreLabel16.setForeground(Color.GREEN);
-                player.setMoney(player.getMoney() + 100000);
-                break;
-            }
-            case 9: {
-                scoreLabel17.setForeground(Color.GREEN);
-                player.setMoney(player.getMoney() + 100000);
-                break;
-            }
-            case 10: {
-                scoreLabel18.setForeground(Color.GREEN);
-                player.setMoney(player.getMoney() + 100000);
-                break;
-            }
-            case 11: {
-                scoreLabel19.setForeground(Color.GREEN);
-                player.setMoney(player.getMoney() + 100000);
-                break;
-            }
+        int money = player.getMoney();
+
+        if (money >= 100000 && money < 200000) {
+            scoreLabel12.setForeground(Color.GREEN);
+        } else if (money >= 200000 && money < 300000) {
+            scoreLabel10.setForeground(Color.GREEN);
+        } else if (money >= 300000 && money < 400000) {
+            scoreLabel11.setForeground(Color.GREEN);
+        } else if (money >= 400000 && money < 500000) {
+            scoreLabel13.setForeground(Color.GREEN);
+        } else if (money >= 500000 && money < 600000) {
+            scoreLabel14.setForeground(Color.GREEN);
+        } else if (money >= 600000 && money < 700000) {
+            scoreLabel15.setForeground(Color.GREEN);
+        } else if (money >= 700000 && money < 800000) {
+            scoreLabel16.setForeground(Color.GREEN);
+        } else if (money >= 800000 && money < 900000) {
+            scoreLabel17.setForeground(Color.GREEN);
+        } else if (money >= 900000 && money < 1000000) {
+            scoreLabel18.setForeground(Color.GREEN);
+        } else if (money >= 1000000) {
+            scoreLabel19.setForeground(Color.GREEN);
         }
     }
 
@@ -422,6 +397,32 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
+        if (!used) {
+            String correctAnswer = question.getCorrectAnswer();
+            List<String> choices = new ArrayList<>(Arrays.asList(jButton4.getText(), jButton3.getText(), jButton6.getText(), jButton5.getText()));
+            choices.remove(correctAnswer);
+            Collections.shuffle(choices);
+
+            if (!choices.isEmpty()) {
+                String incorrectAnswer1 = choices.get(0);
+                String incorrectAnswer2 = choices.get(1);
+
+                if (jButton4.getText().equals(incorrectAnswer1) || jButton4.getText().equals(incorrectAnswer2)) {
+                    jButton4.setBackground(Color.RED);
+                }
+                if (jButton3.getText().equals(incorrectAnswer1) || jButton3.getText().equals(incorrectAnswer2)) {
+                    jButton3.setBackground(Color.RED);
+                }
+                if (jButton6.getText().equals(incorrectAnswer1) || jButton6.getText().equals(incorrectAnswer2)) {
+                    jButton6.setBackground(Color.RED);
+                }
+                if (jButton5.getText().equals(incorrectAnswer1) || jButton5.getText().equals(incorrectAnswer2)) {
+                    jButton5.setBackground(Color.RED);
+                }
+            }
+            jButton1.setForeground(Color.RED);
+            used = true;
+        }
 
     }//GEN-LAST:event_jButton1MouseClicked
 
@@ -434,6 +435,7 @@ public class GUI extends javax.swing.JFrame {
             javax.swing.Timer timer = new javax.swing.Timer(1000, (e)
                     -> {
                 // Execute newQuestion() after 1 seconds
+                player.setMoney(player.getMoney() + 100000);
                 newQuestion();
                 Score();
 //                player.setMoney(player.getMoney() + 100000); // Increase the score by 100,000 (or any desired value)
@@ -459,7 +461,9 @@ public class GUI extends javax.swing.JFrame {
             skip.setSkiped(true);
 
             newQuestion();
-        } 
+        }else{
+            jButton2.setForeground(Color.RED);
+        }
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
@@ -486,6 +490,7 @@ public class GUI extends javax.swing.JFrame {
             javax.swing.Timer timer = new javax.swing.Timer(1000, (e)
                     -> {
                 // Execute newQuestion() after 1 seconds
+                player.setMoney(player.getMoney() + 100000);
                 newQuestion();
                 Score();
             });
@@ -513,6 +518,7 @@ public class GUI extends javax.swing.JFrame {
             javax.swing.Timer timer = new javax.swing.Timer(1000, (e)
                     -> {
                 // Execute newQuestion() after 1 seconds
+                player.setMoney(player.getMoney() + 100000);
                 newQuestion();
                 Score();
             });
@@ -539,6 +545,7 @@ public class GUI extends javax.swing.JFrame {
             javax.swing.Timer timer = new javax.swing.Timer(1000, (e)
                     -> {
                 // Execute newQuestion() after 1 seconds
+                player.setMoney(player.getMoney() + 100000);
                 newQuestion();
                 Score();
             });
