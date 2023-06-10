@@ -460,8 +460,8 @@ public class GUI extends javax.swing.JFrame {
             skip.setSkiped(true);
 
             newQuestion();
-        }else{
             jButton2.setForeground(Color.RED);
+
         }
     }//GEN-LAST:event_jButton2MouseClicked
 

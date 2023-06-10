@@ -121,6 +121,8 @@ public class HowToPlay extends javax.swing.JFrame {
 
     private void jTextArea2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextArea2MouseMoved
         // TODO add your handling code here:
+        
+        //prints helpscreen
         file.helpScreen();
     }//GEN-LAST:event_jTextArea2MouseMoved
 

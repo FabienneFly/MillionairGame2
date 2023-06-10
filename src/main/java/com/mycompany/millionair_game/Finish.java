@@ -153,7 +153,11 @@ public class Finish extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         // TODO add your handling code here:
+        
+        //Save player stats
         dbManager.savePlayerStats(player);
+        
+        //Shows High Score
         jTextArea1.setText("Your Score: " + player.getMoney() + "\n \n" + "Top 3: \n" +db.showTable());
 
     }//GEN-LAST:event_formWindowActivated

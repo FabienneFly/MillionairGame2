@@ -19,6 +19,8 @@ public class MultipleChoiceQuestion //extends AbstractQuestion
     private String[] wrongAnswers;
     private static final String API_ENDPOINT = "https://opentdb.com/api.php?amount=1&difficulty=easy&type=multiple";
     
+    
+    
     //fetches a question from https://opentdb.com/api_config.php
 //    @Override
     public void fetchQuestion(int questionIndex) {
